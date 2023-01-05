@@ -10,21 +10,15 @@ import static org.hamcrest.Matchers.*;
 class MobileBankApiTestV3 {
     @Test
     void shouldReturnDemoAccounts() {
-      // Given - When - Then
-      // Предусловия
-      given()
-          .baseUri("https://postman-echo.com")
-              .body("some data")
-      // Выполняемые действия
-      .when()
-              .post("/post")
-      // Проверки
-      .then()
-          .statusCode(200)
-          // специализированные проверки - лучше
-          .contentType(ContentType.JSON)
-          .body("", hasSize(3))
-
-      ;
+        given()
+                .baseUri("https://postman-echo.com")
+                .body("some data")
+                .when()
+                .post("/post")
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .body("data", equalTo("some data"))
+        ;
     }
 }
